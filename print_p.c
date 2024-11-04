@@ -31,10 +31,10 @@ int	print_p(void *p)
 
 	l = 0;
 	if ((unsigned long)p == 0)
-		l += write(1, "0x0", 3);
+		l += write(1, "(nil)", 5);
 	else
 	{
-		l += write(1, "0x", 2);
+		l += ft_putstr("0x");
 		print_hex((unsigned long)p, 'x');
 		l += p_len((unsigned long)p);
 	}
