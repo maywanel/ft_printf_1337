@@ -6,13 +6,13 @@
 /*   By: moel-mes <moel-mes@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 13:45:20 by moel-mes          #+#    #+#             */
-/*   Updated: 2024/11/03 15:17:42 by moel-mes         ###   ########.fr       */
+/*   Updated: 2024/11/03 16:01:08 by moel-mes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	printx(unsigned int u, char c)
+static void	printx(unsigned long u, char c)
 {
 	char	*hex;
 
@@ -25,7 +25,7 @@ static void	printx(unsigned int u, char c)
 	ft_putchar(hex[u % 16]);
 }
 
-int	print_hex(unsigned int u, char c)
+int	print_hex(unsigned long u, char c)
 {
 	printx(u, c);
 	return (nbr_len(u, 16));

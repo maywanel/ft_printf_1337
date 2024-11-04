@@ -6,7 +6,7 @@
 /*   By: moel-mes <moel-mes@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 13:42:38 by moel-mes          #+#    #+#             */
-/*   Updated: 2024/11/03 15:38:24 by moel-mes         ###   ########.fr       */
+/*   Updated: 2024/11/03 23:20:26 by moel-mes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	print_format(char s, va_list ar)
 	else if (s == 's')
 		l += ft_putstr(va_arg(ar, char *));
 	else if (s == 'd' || s == 'i')
-		l += ft_putnbr(va_arg(ar, int), 0);
+		l += ft_putnbr(va_arg(ar, int));
 	else if (s == 'u')
 		l += ft_print_u(va_arg(ar, unsigned int));
 	else if (s == 'x' || s == 'X')
