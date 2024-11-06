@@ -11,7 +11,6 @@ all: $(NAME)
 
 $(NAME): $(INC) $(OBJ)
 	$(AR) $(NAME) $(OBJ)
-	ranlib $(NAME)
 
 clean:
 	$(RM) $(OBJ)

@@ -6,7 +6,7 @@
 /*   By: moel-mes <moel-mes@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 13:42:38 by moel-mes          #+#    #+#             */
-/*   Updated: 2024/11/03 23:20:26 by moel-mes         ###   ########.fr       */
+/*   Updated: 2024/11/05 17:58:18 by moel-mes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,12 @@ int	print_format(char s, va_list ar)
 		l += ft_print_u(va_arg(ar, unsigned int));
 	else if (s == 'x' || s == 'X')
 		l += print_hex(va_arg(ar, unsigned int), s);
-	else if (s == '%')
-		l += ft_putchar('%');
 	else if (s == 'p')
 		l += print_p(va_arg(ar, void *));
+	else if (s == '%')
+		l += ft_putchar('%');
+	else
+		l += ft_putchar(s);
 	return (l);
 }
 
@@ -46,7 +48,10 @@ int	ft_printf(const char *s, ...)
 	while (s[i])
 	{
 		if (s[i] == '%')
-			l += print_format(s[++i], ar);
+		{
+			if (s[i + 1] != '\0')
+				l += print_format(s[++i], ar);
+		}
 		else
 			l += ft_putchar(s[i]);
 		i++;
