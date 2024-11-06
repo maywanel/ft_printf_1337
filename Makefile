@@ -1,23 +1,18 @@
-CC = cc
-CFLAGS = -Wall -Wextra -Werror
-AR = ar rs
-RM = rm -f
-SRCS = print_p print_hex print_u utils ft_printf
-OBJ = $(SRCS:=.o)
-NAME = libftprintf.a
-INC = ft_printf.h
+NAME	= libftprintf.a
+SRCS	= print_p.c print_hex.c print_u.c utils.c ft_printf.c
+OBJS	= ${SRCS:.c=.o}
+FLAGS	= -Wall -Wextra -Werror
+
+$(NAME):
+	gcc $(FLAGS) -c $(SRCS) -I .
+	ar rc $(NAME) $(OBJS)
 
 all: $(NAME)
 
-$(NAME): $(INC) $(OBJ)
-	$(AR) $(NAME) $(OBJ)
-
 clean:
-	$(RM) $(OBJ)
+	rm -rf $(OBJS)
 
 fclean: clean
-	$(RM) $(NAME)
+	rm -rf $(NAME)
 
 re: fclean all
-
-.PHONY: all clean fclean re
